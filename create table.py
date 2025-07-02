@@ -1,5 +1,21 @@
-from dbms import *
-from Tkinter import *
-root=Tk()
-cur.execute("create table records(name varchar(30) not null,id number,lno number not null,sdate date not null,edate date,pr number,ramt number,rate number,no_intrst number,si number,primary key(id,lno))")
+# create table.py
+from dbms import con, cur
+
+cur.execute("""
+CREATE TABLE IF NOT EXISTS records (
+    name TEXT NOT NULL,
+    id INTEGER,
+    lno INTEGER NOT NULL,
+    sdate TEXT NOT NULL,
+    edate TEXT,
+    pr REAL,
+    ramt REAL,
+    rate REAL,
+    no_intrst INTEGER,
+    si REAL,
+    PRIMARY KEY (id, lno)
+)
+""")
+
 con.commit()
+
